@@ -28,9 +28,9 @@ namespace CandyShop.Controllers
         {
             _shoppingCart.ShoppingCartItems = _shoppingCart.GetShoppingCartItems();
 
-            if (_shoppingCart.ShoppingCartItems.Count > 0)
+            if (_shoppingCart.ShoppingCartItems.Count == 0)
             {
-                ModelState.AddModelError("", "Your cate is empty");
+                ModelState.AddModelError("", "Your cart is empty");
             }
 
             if (ModelState.IsValid)
@@ -45,7 +45,7 @@ namespace CandyShop.Controllers
 
         public IActionResult CheckoutComplete()
         {
-            ViewBag.CehckoutCompleteMessage = "Thank you for your order. Enjoy your candy";
+            ViewBag.CheckoutCompleteMessage = "Thank you for your order. Enjoy your candy";
             return View();
         }
     }
